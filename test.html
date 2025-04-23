@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Шпаргалка: Методи додавання елементів у DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h2 {
+        margin-top: 30px;
+        color: #333;
+      }
+      code {
+        display: block;
+        background: #f4f4f4;
+        padding: 10px;
+        border-left: 4px solid #007bff;
+        margin: 10px 0;
+        white-space: pre-wrap;
+      }
+      @media print {
+        body {
+          padding: 0;
+        }
+        code {
+          border-left: 2px solid black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Шпаргалка: Методи додавання елементів у DOM</h1>
+
+    <h2>1. append()</h2>
+    <p>Додає елемент у кінець всередині іншого елемента.</p>
+    <code>
+      const div = document.querySelector('#container');<br />
+      const p = document.createElement('p');<br />
+      p.textContent = 'Це додано через append()';<br />
+      div.append(p);<br />
+    </code>
+
+    <h2>2. prepend()</h2>
+    <p>Додає елемент на початок всередині іншого елемента.</p>
+    <code>
+      const div = document.querySelector('#container');<br />
+      const p = document.createElement('p');<br />
+      p.textContent = 'Це додано через prepend()';<br />
+      div.prepend(p);<br />
+    </code>
+
+    <h2>3. before()</h2>
+    <p>Додає елемент безпосередньо перед зазначеним елементом.</p>
+    <code>
+      const target = document.querySelector('#target');<br />
+      const p = document.createElement('p');<br />
+      p.textContent = 'Це додано через before()';<br />
+      target.before(p);<br />
+    </code>
+
+    <h2>4. after()</h2>
+    <p>Додає елемент безпосередньо після зазначеного елемента.</p>
+    <code>
+      const target = document.querySelector('#target');<br />
+      const p = document.createElement('p');<br />
+      p.textContent = 'Це додано через after()';<br />
+      target.after(p);<br />
+    </code>
+
+    <h2>5. insertBefore()</h2>
+    <p>
+      Додає елемент перед reference-елементом у межах одного батьківського
+      елемента.
+    </p>
+    <code>
+      const parent = document.querySelector('#list');<br />
+      const reference = document.querySelector('#item2');<br />
+      const li = document.createElement('li');<br />
+      li.textContent = 'Новий елемент перед другим';<br />
+      parent.insertBefore(li, reference);<br />
+    </code>
+
+    <h2>6. innerHTML</h2>
+    <p>
+      Додає HTML у вигляді рядка. Не рекомендується для вмісту від користувача
+      через XSS.
+    </p>
+    <code>
+      const div = document.querySelector('#content');<br />
+      div.innerHTML += '
+      <p>Додано через innerHTML</p>
+      ';<br />
+    </code>
+
+    <h2>7. insertAdjacentHTML()</h2>
+    <p>Додає HTML-рядок у певну позицію відносно елемента.</p>
+    <code>
+      const div = document.querySelector('#box');<br />
+      div.insertAdjacentHTML('beforeend', '
+      <p>HTML через insertAdjacentHTML</p>
+      ');<br />
+    </code>
+
+    <h2>8. insertAdjacentElement()</h2>
+    <p>Додає готовий DOM-елемент у певну позицію відносно елемента.</p>
+    <code>
+      const div = document.querySelector('#box');<br />
+      const p = document.createElement('p');<br />
+      p.textContent = 'Елемент через insertAdjacentElement';<br />
+      div.insertAdjacentElement('afterbegin', p);<br />
+    </code>
+
+    <h2>9. insertAdjacentText()</h2>
+    <p>Додає простий текст у певну позицію відносно елемента.</p>
+    <code>
+      const div = document.querySelector('#box');<br />
+      div.insertAdjacentText('beforeend', 'Текст через insertAdjacentText');<br />
+    </code>
+  </body>
+</html>

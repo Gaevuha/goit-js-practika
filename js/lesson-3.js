@@ -4,17 +4,15 @@
 
 // const numbers = [1, 2, 3, 4, 5]
 
-// const numberArr = [1, 2, 3, 4, 5];
-
 // const newArr = [];
 
-// const squareNumber = (numberArr) => {
+// const squareNumber = (numbers) => {
 
-//     return numberArr.map((number) => number * number);
+//     return numbers.map((number) => number * number);
 
 // };
 
-// console.log(squareNumber(numberArr));
+// console.log(squareNumber(numbers));
 
 //!========================================================
 
@@ -107,23 +105,28 @@
 //  Відсортуйте масив об'єктів за віком у порядку зростання. 
 // Очікуваний результат: [{name: "Bob", age: 19}, {name: "John", age: 27}, {name: "Jane", age: 31}].
 
-// const users = [
-//  { name: 'John', age: 27 },
-//  { name: 'Jane', age: 31 },
-//  { name: 'Bob', age: 19 },
-// ];
+const users = [
+ { name: 'John', age: 27 },
+ { name: 'Jane', age: 31 },
+ { name: 'Bob', age: 19 },
+ { name: 'Anna', age: 16 },
+ { name: 'Olena', age: 16 },
+];
 
-// const sortedUsers = (users) => {
+const sortedUsers = (users) => {
 
-//     return users.toSorted((a, b) => a.age - b.age);
+    return users.toSorted((a, b) => {
+          
+        if (a.age === b.age) {
+        
+      return a.name.localeCompare(b.name);
+    }
+    return a.age - b.age;
+  });
 
-//     // або
+};
 
-//     // return users.sort((a, b) => a.age - b.age);  //змінює оригінальний масив
-
-// };
-
-// console.log(sortedUsers(users));
+console.log(sortedUsers(users));
 
 
 //!========================================================
@@ -163,4 +166,21 @@
 // console.log(sum(numbers));
 
 //!========================================================
+
+// Дано масив об'єктів. 
+// Перевірте, чи є хоча б один об'єкт з віком менше 20 років. 
+// Очікуваний результат: true.
+
+// const people = [
+//  { name: 'John', age: 27 },
+//  { name: 'Jane', age: 31 },
+//  { name: 'Bob', age: 19 },
+// ];
+
+// const newArrUser = (people) => {
+
+//     return people.some(elem => elem.age < 20);
+
+// };
+// console.log(newArrUser(people));
 
